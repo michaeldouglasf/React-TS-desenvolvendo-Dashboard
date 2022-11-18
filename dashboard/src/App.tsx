@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import React from "react";
+import GlobalStyles from "./styles/GlobalStyles";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Dashboard from "./Pages/Dashboard";
 
+
+const App = () => {
   return (
-    <div >
-        <h1>Hello world</h1>
-    </div>
+    <>
+      <GlobalStyles/>
+      <Dashboard/>
+    </>
+
   )
 }
-
-export default App
+export default App;
