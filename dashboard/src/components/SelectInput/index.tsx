@@ -3,18 +3,18 @@ import { Container } from './styles';
 
 
 interface ISelectInputProps {
-    options: {
+    months: {
         value: string | number;
         label: string | number;
     } [],
 }
-const SelectInput: React.FC <ISelectInputProps> = ( { options }) => {
+const SelectInput: React.FC <ISelectInputProps> = ( { months }) => {
     return (
         <Container>
             <select>
                 {   
-                   options.map(option =>(
-                     <option value={option.value}>{option.label}</option>
+                   months.map(month =>(
+                     <option value={month.value}>{month.label}</option>
 
                    ))
                     
