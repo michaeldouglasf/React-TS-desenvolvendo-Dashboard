@@ -6,11 +6,13 @@ import MainHeader from "../MainHeader";
 import Aside from "../Aside";
 import Content from "../Content";
 
-const Layout = () => (
+const Layout = (  { children }) => (
   <Grid>
     <MainHeader />
     <Aside />
-    <Content />
+    <Content >
+      { children }
+    </Content>
   </Grid>
 );
 
