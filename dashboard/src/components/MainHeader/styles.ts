@@ -5,4 +5,17 @@ export const Container = styled.div`
 
   background-color: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.white};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid ${(props) => props.theme.colors.gray};
 `;
+
+export const Profile = styled.div`
+  color: ${(props) => props.theme.colors.white};
+`;
+export const Welcome = styled.span`
+  font-weight: bold;
+`;
+export const UserName = styled.div``;
