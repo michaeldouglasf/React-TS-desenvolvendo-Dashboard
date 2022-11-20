@@ -2,10 +2,10 @@ import React from "react";
 
 import { Container } from "./styles";
 
-function Content({ children }) {
+function Content() {
   return (
     <Container>
-      {children}
+      <h1>Content</h1>
     </Container>
   );
 }

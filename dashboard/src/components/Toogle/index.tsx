@@ -1,21 +1,18 @@
-import React,{useState} from "react";
+import React from "react";
 import { 
   Container, 
   ToogleLabel, 
   ToogleSelector } from "./styles";
 
 function Toogle() {
-  
-  const [toogleOn, setToogleOn] = useState(false)
-
   return (
     <Container>
       <ToogleLabel>Light</ToogleLabel>
       <ToogleSelector 
-        checked={toogleOn}
+        checked
         uncheckedIcon={false} 
         checkedIcon={false} 
-        onChange={() => setToogleOn(!toogleOn)} 
+        onChange={() => console.log("mudou")} 
       />
       <ToogleLabel>Dark</ToogleLabel>
     </Container>
