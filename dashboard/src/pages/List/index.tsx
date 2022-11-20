@@ -31,7 +31,8 @@ interface IData {
 const List: React.FC  = () => {
   
     const [data, setData] = useState<IData[]>([])
-
+    const [monthSelected, setMonthSelected] = useState<string>(String(new Date().getMonth() + 1))
+    const [yearSelected, setYearSelected] = useState<string>(String( new Date().getFullYear()))
     
 
 
@@ -50,9 +51,18 @@ const List: React.FC  = () => {
     },[id])
 
     useEffect(() => {
-     const response = listData.map(item => {
+
+     const filteredData = listData.filter(item => {
+      const date = new Date(item.date)
+      const month = String(date.getMonth() + 1)
+      const year = String(date.getFullYear())
+
+      return month === monthSelected && year === yearSelected;
+     })
+
+      const formattedData = filteredData.map(item=>{
         return {
-          id: String(Math.random() * data.length),
+          id: String(new Date().getTime()/1000),
           description: item.description,
           amountFormated:item.amount,
           frequency: item.frequency,
@@ -60,8 +70,8 @@ const List: React.FC  = () => {
           tagColor: item.frequency === 'recorrente' ? "#4e41f0" : "#e44c4e",
         }
       })
-      setData(response)
-    },[])
+      setData(formattedData)
+    },[listData, monthSelected, yearSelected])
 
     const months = [
       { value: 1, label: 'Janeiro' },
@@ -94,8 +104,8 @@ const List: React.FC  = () => {
   return (
     <Container>
         <ContentHeader title={title} lineColor={lineColor} >
-          <SelectInput months={months}/>
-          <SelectInput months={years}/>
+          <SelectInput months={months} onChange={(e)=>setMonthSelected(e.target.value)} defaultValue={monthSelected} />
+          <SelectInput months={years} onChange={(e)=>setYearSelected(e.target.value)} defaultValue={yearSelected}/>
         </ContentHeader>
 
         <Filters>

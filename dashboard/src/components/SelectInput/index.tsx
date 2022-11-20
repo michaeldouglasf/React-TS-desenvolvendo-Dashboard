@@ -7,11 +7,17 @@ interface ISelectInputProps {
         value: string | number;
         label: string | number;
     } [],
+    onChange(event: React.ChangeEvent<HTMLSelectElement>): void | undefined;
+    defaultValue?: string | number;
 }
-const SelectInput: React.FC <ISelectInputProps> = ( { months }) => {
+const SelectInput: React.FC <ISelectInputProps> = ( {
+     months,
+     onChange,
+     defaultValue
+     }) => {
     return (
         <Container>
-            <select>
+            <select onChange={onChange} defaultValue={defaultValue}>
                 {   
                    months.map(month =>(
                      <option value={month.value}>{month.label}</option>
