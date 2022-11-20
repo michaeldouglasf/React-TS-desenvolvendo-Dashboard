@@ -25,17 +25,17 @@ const Aside = () => {
       </Header>
      
       <MenuContainer>
-        <MenuItemLink href="#">
+        <MenuItemLink href="/dashboard">
          <MdDashboard/>
           DashBoard
         </MenuItemLink>
     
-        <MenuItemLink href="#">
+        <MenuItemLink href="/list/entry-balance">
           <MdArrowUpward/>
           Entradas
         </MenuItemLink>
       
-        <MenuItemLink href="#">
+        <MenuItemLink href="/list/exit-balance">
           <MdArrowDownward/>
           Saidas
         </MenuItemLink>

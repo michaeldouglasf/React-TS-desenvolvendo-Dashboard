@@ -2,14 +2,17 @@ import React from "react";
 import GlobalStyles from "./styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 
-import Dashboard from "./pages/Dashboard";
 import dark from "./styles/themes/dark";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./routes/router";
 const App = () => {
   return (
-    <ThemeProvider theme={dark}>
-      <GlobalStyles />
-      <Dashboard />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={dark}>
+        <GlobalStyles />
+        <Router/>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 export default App;
