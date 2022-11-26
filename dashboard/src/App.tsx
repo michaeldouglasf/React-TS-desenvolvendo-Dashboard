@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import dark from "./styles/themes/dark";
 import { BrowserRouter } from "react-router-dom";
-import Router from "./routes/router";
+import Router from "./components/SelectInput/routes/router";
 const App = () => {
   return (
     <BrowserRouter>

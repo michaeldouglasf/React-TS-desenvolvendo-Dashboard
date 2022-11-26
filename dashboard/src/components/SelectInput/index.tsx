@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 
 interface ISelectInputProps {
-    months: {
+    options: {
         value: string | number;
         label: string | number;
     } [],
@@ -11,7 +11,7 @@ interface ISelectInputProps {
     defaultValue?: string | number;
 }
 const SelectInput: React.FC <ISelectInputProps> = ( {
-     months,
+     options,
      onChange,
      defaultValue
      }) => {
@@ -19,8 +19,8 @@ const SelectInput: React.FC <ISelectInputProps> = ( {
         <Container>
             <select onChange={onChange} defaultValue={defaultValue}>
                 {   
-                   months.map(month =>(
-                     <option value={month.value}>{month.label}</option>
+                   options.map(option =>(
+                     <option value={option.value}>{option.label}</option>
 
                    ))
                     
