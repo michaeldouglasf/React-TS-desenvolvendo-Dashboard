@@ -2,6 +2,8 @@ import React,{ useState, useEffect, useMemo} from "react";
 import { Container } from './styles';
 import ContentHeader from '../../components/ContentHeader/index';
 import SelectInput from '../../components/SelectInput/index';
+import React from "react";
+import Layout from "../../components/Layout";
 
 import expenses from '../../repositories/expenses'
 import gains from '../../repositories/gains'
@@ -69,6 +71,7 @@ const Dashboard:React.FC = () => {
         throw new Error ('Invalid year value. Is accept  integer numbers.')
       }
     }
+function Dashboard() {
   return (
     <Container>
         <ContentHeader title="Dashboard" lineColor="#f7931b">

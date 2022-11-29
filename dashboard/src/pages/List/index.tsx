@@ -1,4 +1,4 @@
-import React,{useMemo, useState, useEffect} from 'react';
+import { Container } from "./styles";
 
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
