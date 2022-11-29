@@ -1,6 +1,7 @@
 import React,{useMemo, useState, useEffect} from 'react';
 
 import { useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 import ContentHeader from '../../components/ContentHeader/index';
 import SelectInput from '../../components/SelectInput/index';
@@ -15,6 +16,7 @@ import { Container,
    Content,
    Filters
  } from './styles';
+import { uuid } from 'uuidv4';
 
 // interface IRoutesParams {
 //   match: {
@@ -109,9 +111,9 @@ const List: React.FC  = () => {
       return month === monthSelected && year === yearSelected;
      })
 
-      const formattedData = filteredData.map(item=>{
+      const formattedData = filteredData.map(item =>{
         return {
-          id: String(new Date().getTime()/1000) + item.amount,
+          id: uuidv4() ,
           description: item.description,
           amountFormated:item.amount,
           frequency: item.frequency,
@@ -140,7 +142,7 @@ const List: React.FC  = () => {
           label: year,
         }
       })
-    },[data])
+    },[pageData])
 
     const monthsOfYear = useMemo(() => {
       months.map((month: any, index: number) => {
@@ -155,11 +157,13 @@ const List: React.FC  = () => {
     <Container>
         <ContentHeader title={pageData.title} lineColor={pageData.lineColor} >
           <SelectInput 
+            key={id}
             options={months} 
             onChange={(e)=> handeleMonthSelected(e.target.value)} 
             defaultValue={monthSelected} 
           />
           <SelectInput 
+            key={id}
             options={years} 
             onChange={(e)=>handeleYearSelected(e.target.value)} 
             defaultValue={yearSelected}
